@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Phani Kumar · Software Developer</title>
+<meta name="description" content="Karubhuktha Phani Kumar, CSE graduate and software developer (Node.js, Express, SQL). Projects, internships, skills and resume.">
+<meta property="og:title" content="Karubhuktha Phani Kumar · Software Developer">
+<meta property="og:description" content="CSE '26 graduate building full-stack web apps with Node.js, Express and SQL. Open to work.">
+<meta property="og:image" content="https://phanikumar1619.github.io/img/photo.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/photo.jpg">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: 1080px column. Navy header band, white section cards that overlap it, one sans family + mono only for code. Type scale: 13 / 15 / 17 / 22 / 30 / hero. */
+:root{
+  --page:#f3f5f9; --paper:#ffffff; --ink:#141c2e; --text:#3a4458; --muted:#677189; --line:#e0e4ec; --soft:#f6f8fb;
+  --navy:#132042; --navy-2:#1b2b55; --navy-text:#c4cee4; --accent:#2c59d1; --accent-soft:#e7edfc; --gold:#c58c27; --ok:#1f9d61;
+  --code-bg:#101a33; --code-fg:#d6def0; --code-key:#f2bd5c; --code-com:#8391b0;
+  --f:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",Consolas,ui-monospace,monospace;
+  --t-xs:13px; --t-sm:15px; --t-md:16px; --t-lg:20px; --t-xl:26px; --t-hero:clamp(30px,4.2vw,42px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --page:#0c111c; --paper:#131a28; --ink:#eef1f8; --text:#c2c9d8; --muted:#8d97ac; --line:#222c3e; --soft:#101724;
+  --navy:#0a1022; --navy-2:#121b36; --navy-text:#b3bfd9; --accent:#83a1f2; --accent-soft:#1b2747; --gold:#e3b05a; --ok:#45c98a;
+  --code-bg:#0a1022; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --page:#0c111c; --paper:#131a28; --ink:#eef1f8; --text:#c2c9d8; --muted:#8d97ac; --line:#222c3e; --soft:#101724;
+  --navy:#0a1022; --navy-2:#121b36; --navy-text:#b3bfd9; --accent:#83a1f2; --accent-soft:#1b2747; --gold:#e3b05a; --ok:#45c98a;
+  --code-bg:#0a1022; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--page);color:var(--text);font:400 var(--t-sm)/1.7 var(--f)}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+h1,h2,h3,h4{color:var(--ink);margin:0;line-height:1.25;text-wrap:balance}
+h2{font-size:var(--t-xl);font-weight:600;letter-spacing:-.01em}
+h3{font-size:var(--t-md);font-weight:600}
+h4{font-size:var(--t-xs);font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+p{margin:0}
+ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.inner{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.label{font-size:var(--t-xs);font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:var(--navy);padding:8px 12px;border-radius:6px;z-index:9}
+.skip:focus{left:12px}
+
+/* header */
+.band{background:radial-gradient(1200px 400px at 85% -10%,var(--navy-2),transparent 70%),var(--navy);color:var(--navy-text)}
+.band .inner{padding-block:22px 72px}
+nav{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;font-size:var(--t-xs);font-weight:500}
+nav .brand{color:#fff;text-decoration:none;display:flex;align-items:center;gap:10px}
+nav .brand i{width:28px;height:28px;border-radius:7px;background:var(--accent);display:grid;place-items:center;font-style:normal;font-size:12px;color:#fff}
+nav ul{display:flex;flex-direction:row;gap:22px;list-style:none;padding:0;flex-wrap:wrap}
+nav ul a{color:var(--navy-text);text-decoration:none}
+nav ul a:hover{color:#fff}
+.intro{display:grid;grid-template-columns:auto minmax(0,1fr);gap:36px;align-items:center;margin-top:52px}
+.avatar{width:120px;height:120px;border-radius:50%;background:linear-gradient(140deg,#3a67e0,#1a2c5e);display:grid;place-items:center;color:#fff;font-size:34px;font-weight:600;box-shadow:0 0 0 5px rgba(255,255,255,.1);overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.intro h1{color:#fff;font-size:var(--t-hero);font-weight:700;letter-spacing:-.015em}
+.intro .role{color:#fff;font-size:var(--t-md);font-weight:500;margin-top:8px}
+.intro .role span{color:var(--gold);padding:0 6px}
+.intro .lede{font-size:var(--t-sm);margin-top:14px;max-width:62ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tags span{font-size:var(--t-xs);font-weight:500;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.08);color:#fff}
+.tags .on::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#4ad991;margin-right:8px;vertical-align:1px}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 18px;border-radius:8px;font:600 var(--t-xs)/1.2 var(--f);text-decoration:none;border:1px solid rgba(255,255,255,.3);color:#fff;background:transparent;cursor:pointer}
+.btn.solid{background:#fff;color:#132042;border-color:#fff}
+.btn:hover{border-color:#fff}
+
+/* main */
+main .inner{display:grid;gap:28px;padding-block:0 56px;margin-top:-34px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:clamp(20px,3.6vw,40px);min-width:0}
+.head{display:grid;gap:8px;margin-bottom:26px}
+.head p{color:var(--muted);max-width:64ch}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:0}
+.stat{padding:22px 24px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat b{display:block;color:var(--ink);font-size:var(--t-xl);font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat span{font-size:var(--t-xs);color:var(--muted)}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:40px}
+.about p+p{margin-top:12px}
+.glance{align-self:start;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;gap:12px;align-content:start}
+.glance div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:10px;font-size:var(--t-xs)}
+.glance dt{color:var(--muted);font-weight:400}
+.glance dd{margin:0;color:var(--ink);font-weight:500}
+dl{margin:0;display:grid;gap:10px}
+
+/* roles */
+.roles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.r{border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0;background:var(--paper)}
+.r.top{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.r .row{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.fit{font-size:12px;font-weight:500;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.fit.high{background:var(--accent-soft);color:var(--accent)}
+.fit.good{background:var(--soft);color:var(--muted);border:1px solid var(--line)}
+.r p{font-size:var(--t-xs);color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12.5px;font-weight:500;padding:3px 10px;border-radius:6px;background:var(--soft);color:var(--text);border:1px solid var(--line)}
+.r .proof{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-size:var(--t-xs);color:var(--text)}
+.r .proof b{color:var(--ink)}
+
+/* timeline */
+.tl{display:grid;gap:0}
+.job{display:grid;grid-template-columns:190px minmax(0,1fr);gap:28px;padding:22px 0;border-top:1px solid var(--line)}
+.job:first-child{border-top:0;padding-top:0}
+.job:last-child{padding-bottom:0}
+.when{font-size:var(--t-xs);color:var(--muted);font-variant-numeric:tabular-nums}
+.when b{display:block;color:var(--ink);font-size:var(--t-sm)}
+.job .org{color:var(--muted);font-size:var(--t-xs);margin:2px 0 12px}
+.job .chips{margin-top:14px}
+
+/* projects */
+.projects{display:grid;gap:40px}
+.p{display:grid;gap:22px}
+.p-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px 16px;flex-wrap:wrap}
+.p-head h3{font-size:var(--t-lg);font-weight:600}
+.p-head .kind{font-size:var(--t-xs);font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
+.p .pitch{font-size:var(--t-sm);color:var(--text);max-width:70ch}
+.p-shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.p-shot{max-width:760px}
+.p-shots img,.p-shot img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+.p-body{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 32px}
+.p-body > div{min-width:0}
+.p-body h4{margin-bottom:10px}
+.p-body ul{font-size:var(--t-sm)}
+.p .wide{grid-column:1/-1}
+pre.code{margin:0;background:var(--code-bg);color:var(--code-fg);border-radius:10px;padding:16px 18px;font:400 12.5px/1.75 var(--f-mono);overflow-x:auto}
+pre.code .k{color:var(--code-key)} pre.code .c{color:var(--code-com)}
+.code-note{font-size:var(--t-xs);color:var(--muted);margin-top:10px;max-width:80ch}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font:500 12.5px var(--f-mono)}
+.flow b{font-weight:500;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--soft);color:var(--ink)}
+.flow b.db{border-color:var(--accent);color:var(--accent)}
+.flow em{font-style:normal;color:var(--muted)}
+.routes{font:400 12.5px/1.9 var(--f-mono);background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow-x:auto;white-space:pre;color:var(--ink)}
+.routes .m{display:inline-block;width:62px;color:var(--accent);font-weight:500}
+.p-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--line)}
+.link{font-size:var(--t-xs);font-weight:600;text-decoration:none}
+.link::after{content:" →"}
+.divider{height:1px;background:var(--line)}
+.small-projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.sp{border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:12px;align-content:start;min-width:0}
+.sp ul{font-size:var(--t-sm)}
+.sp p{font-size:var(--t-sm)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 28px}
+.skills h4{margin-bottom:10px}
+
+/* creds */
+.creds{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px}
+.list{list-style:none;padding:0;display:block}
+.list li{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.list li:first-child{padding-top:0}
+.list li:last-child{border-bottom:0}
+.list b{color:var(--ink);font-weight:600;display:block}
+.list span{font-size:var(--t-xs);color:var(--muted)}
+.list time,.list em{font-size:var(--t-xs);color:var(--muted);white-space:nowrap;font-style:normal;font-variant-numeric:tabular-nums}
+.gpa{color:var(--accent);font-weight:600}
+.langs{margin-top:22px;font-size:var(--t-xs);color:var(--muted)}
+.langs b{color:var(--ink)}
+
+/* contact */
+.contact{background:var(--navy);border:0;color:var(--navy-text);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}
+.contact h2{color:#fff}
+.contact p{margin-top:8px;max-width:56ch}
+.mail{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.mail code{font:500 var(--t-sm) var(--f);color:#fff;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,.08);user-select:all;overflow-wrap:anywhere}
+footer{text-align:center;font-size:var(--t-xs);color:var(--muted);padding-block:0 32px}
+
+@media (max-width:900px){
+  .roles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .p-body{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .about,.creds,.contact{grid-template-columns:1fr}
+  .skills{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .intro{grid-template-columns:1fr;gap:22px;margin-top:34px}
+  .avatar{width:100px;height:100px;font-size:32px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .roles,.p-body,.skills,.small-projects,.p-shots{grid-template-columns:1fr}
+  .job{grid-template-columns:1fr;gap:6px}
+  .list li{flex-direction:column;gap:2px}
+  .glance div{grid-template-columns:1fr;gap:0}
+}
+@media (prefers-reduced-motion:no-preference){.btn{transition:border-color .15s}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="band">
+  <div class="inner">
+    <nav aria-label="Main">
+      <a class="brand" href="#top"><i>PK</i>Phani Kumar</a>
+      <ul>
+        <li><a href="#roles">Roles</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+    <header class="intro" id="top">
+      <!-- Photo: replace PK with <img src="img/photo.jpg" alt="Karubhuktha Phani Kumar"> -->
+      <div class="avatar"><img src="img/photo.jpg" alt="Karubhuktha Phani Kumar"></div>
+      <div>
+        <h1>Karubhuktha Phani Kumar</h1>
+        <p class="role">Software Developer<span>/</span>Node.js · Backend · Full-Stack</p>
+        <p class="lede">I build web applications end to end: the schema, the REST API, the auth layer and the UI that sits on top. My favourite part is the backend, where one wrong query or a missing constraint can quietly break everything.</p>
+        <div class="tags">
+          <span class="on">Open to work · can join immediately</span>
+          <span>B.Tech CSE ’26 · CGPA 9.06</span>
+          <span>Open to relocation or remote</span>
+        </div>
+        <div class="cta">
+          <a class="btn solid" href="resume.pdf" target="_blank" rel="noopener">View resume</a>
+          <a class="btn" href="#projects">See my work</a>
+          <a class="btn" href="https://github.com/phanikumar1619">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/karubhuktha-phani-kumar-9555832b2">LinkedIn</a>
+        </div>
+      </div>
+    </header>
+  </div>
+</div>
+
+<main id="main">
+  <div class="inner">
+
+    <!-- STATS -->
+    <div class="card stats" aria-label="Quick facts">
+      <div class="stat"><b>9.06</b><span>CGPA, B.Tech CSE</span></div>
+      <div class="stat"><b>2</b><span>Internships</span></div>
+      <div class="stat"><b>4</b><span>Projects on GitHub</span></div>
+      <div class="stat"><b>5</b><span>Certifications</span></div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="card" id="about">
+      <div class="about">
+        <div>
+          <p class="label">About</p>
+          <h2 style="margin:8px 0 16px">Hi, I’m Phani</h2>
+          <p>I graduated in Computer Science from KL University in 2026. I started with Node.js the honest way: small practice repos on core modules, then a plain Express CRUD API. Once that clicked, I built two full-stack apps on my own: BusGo, a bus booking system with a seat-level concurrency guard, and BlogSpace, a blogging app with image uploads.</p>
+          <p>Two internships showed me the other side of software. At APSSDC I worked in a small team on ML models and learned to use Git properly. At NSK Software Solutions I watched a real iOS product go through testing and an App Store release, and I understood why edge cases matter.</p>
+          <p>I’m looking for a team where I can ship code that people actually use, get honest reviews, and grow fast.</p>
+        </div>
+        <div class="glance">
+          <dl>
+            <div><dt>Looking for</dt><dd>Entry-level software roles</dd></div>
+            <div><dt>Notice period</dt><dd>None, can join now</dd></div>
+            <div><dt>Work mode</dt><dd>On-site, hybrid or remote</dd></div>
+            <div><dt>Location</dt><dd>Visakhapatnam, open to relocate</dd></div>
+            <div><dt>Languages</dt><dd>Telugu, English, Hindi</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROLES -->
+    <section class="card" id="roles">
+      <div class="head">
+        <p class="label">Where my skills fit today</p>
+        <h2>Roles I can step into</h2>
+        <p>Every skill listed here comes from code you can open on my GitHub.</p>
+      </div>
+      <div class="roles">
+        <article class="r top">
+          <div class="row"><h3>Software Engineer (Fresher)</h3><span class="fit high">Strong fit</span></div>
+          <p>SDE-1, associate engineer and developer trainee roles.</p>
+          <div class="chips"><span class="chip">JavaScript</span><span class="chip">SQL</span><span class="chip">REST APIs</span><span class="chip">Git</span></div>
+          <p class="proof"><b>Proof:</b> two working apps and two learning repos, all documented.</p>
+        </article>
+        <article class="r">
+          <div class="row"><h3>Backend Developer</h3><span class="fit high">Strong fit</span></div>
+          <p>APIs, data models, auth and server-side logic.</p>
+          <div class="chips"><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">SQLite</span><span class="chip">Transactions</span></div>
+          <p class="proof"><b>Proof:</b> BusGo’s layered API and 12-table schema.</p>
+        </article>
+        <article class="r">
+          <div class="row"><h3>Node.js / API Developer</h3><span class="fit high">Strong fit</span></div>
+          <p>Designing and building clean REST endpoints.</p>
+          <div class="chips"><span class="chip">Express</span><span class="chip">Middleware</span><span class="chip">Status codes</span><span class="chip">Validation</span></div>
+          <p class="proof"><b>Proof:</b> People CRUD API, BlogSpace API, BusGo API.</p>
+        </article>
+        <article class="r">
+          <div class="row"><h3>Full-Stack Developer</h3><span class="fit high">Strong fit</span></div>
+          <p>Owning a feature from the database to the screen.</p>
+          <div class="chips"><span class="chip">Node.js</span><span class="chip">SQLite</span><span class="chip">HTML/CSS</span><span class="chip">JavaScript</span></div>
+          <p class="proof"><b>Proof:</b> BusGo and BlogSpace ship both API and UI.</p>
+        </article>
+        <article class="r">
+          <div class="row"><h3>Frontend Web Developer</h3><span class="fit good">Good fit</span></div>
+          <p>Responsive, accessible interfaces in plain JavaScript.</p>
+          <div class="chips"><span class="chip">Vanilla JS</span><span class="chip">DOM</span><span class="chip">Fetch API</span><span class="chip">CSS3</span></div>
+          <p class="proof"><b>Proof:</b> BusGo and BlogSpace UIs, built without a framework.</p>
+        </article>
+        <article class="r">
+          <div class="row"><h3>Graduate Engineer Trainee</h3><span class="fit good">Good fit</span></div>
+          <p>Campus programs at IT services and product companies.</p>
+          <div class="chips"><span class="chip">JavaScript</span><span class="chip">SQL</span><span class="chip">Git</span></div>
+          <p class="proof"><b>Proof:</b> CGPA 9.06 and five certifications.</p>
+        </article>
+      </div>
+
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="card" id="experience">
+      <div class="head"><p class="label">Experience</p><h2>Internships</h2></div>
+      <div class="tl">
+        <div class="job">
+          <div class="when"><b>NSK Software Solutions</b>2025 – Present</div>
+          <div>
+            <h3>Software Development Intern</h3>
+            <p class="org">UpLift Me · AI-powered goal-tracking app, live on the Apple App Store</p>
+            <ul>
+              <li>Spent my first three months on onboarding: the product’s problem statement, its user flows and its architecture (SwiftUI client, AWS backend).</li>
+              <li>Picked up small fixes and features alongside the core team, using AI-assisted development to move faster and reviewing every change before it went in.</li>
+              <li>Sat in on QA and App Store submission sessions, which is where I learned how much testing goes into one release.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="when"><b>APSSDC &amp; Edunet Foundation</b>May – Jun 2024</div>
+          <div>
+            <h3>AI/ML Intern</h3>
+            <p class="org">Andhra Pradesh State Skill Development Corporation program</p>
+            <ul>
+              <li>Built and evaluated classification models as part of a four-person team.</li>
+              <li>Handled the data preprocessing: cleaning, feature engineering and normalisation.</li>
+              <li>Used Git for version control and joined daily stand-ups.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="card" id="projects">
+      <div class="head"><p class="label">Projects</p><h2>Selected work</h2><p>Each repo has a README with setup steps, so you can clone it and run it locally in a couple of minutes.</p></div>
+      <div class="projects">
+
+        <!-- BusGo -->
+        <article class="p" id="busgo">
+          <div class="p-head"><h3>BusGo: Bus Ticket Booking System</h3><span class="kind">Featured · Backend-heavy</span></div>
+          <p class="pitch">A redBus-style booking site. Passengers search routes, filter buses, pick seats on a live seat map and get an e-ticket. Admins manage buses, schedules and every booking from a separate panel.</p>
+          <div class="p-shots">
+            <img src="img/bus-results.jpg" alt="BusGo search results for Hyderabad to Bengaluru with filters and sorting" >
+            <img src="img/bus-seats.jpg" alt="BusGo seat map with booked and available seats and a fare summary" >
+          </div>
+          <div class="p-body">
+            <div>
+              <h4>What it does</h4>
+              <ul>
+                <li>Route search with filters and sort</li>
+                <li>Seat map with boarding and dropping points</li>
+                <li>4-step checkout: seats, passengers, review, ticket</li>
+                <li>My Bookings with cancellation</li>
+                <li>Admin CRUD for buses, schedules and bookings</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Security</h4>
+              <ul>
+                <li>Passwords hashed with scrypt and a per-user salt</li>
+                <li>Session tokens stored only as SHA-256 hashes</li>
+                <li>Role-based middleware for passenger and admin routes</li>
+                <li>Central error handler returning consistent JSON errors</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Data model</h4>
+              <ul>
+                <li>12 normalised SQLite tables with foreign keys and CHECK constraints</li>
+                <li>Fares copied into each booking, so later price changes never alter an old ticket</li>
+                <li>Seed scripts for cities, buses, seat layouts and schedules</li>
+              </ul>
+            </div>
+            <div class="wide">
+              <h4 style="margin-bottom:10px">Request flow</h4>
+              <div class="flow" aria-label="Request flow"><b>client</b><em>→</em><b>routes</b><em>→</em><b>session + auth middleware</b><em>→</em><b>controllers</b><em>→</em><b>services</b><em>→</em><b class="db">SQLite</b></div>
+            </div>
+            <div class="wide">
+              <h4 style="margin-bottom:10px">The part I’m proudest of</h4>
+              <pre class="code"><span class="c">-- one active booking per seat, per bus, per date</span>
+<span class="k">CREATE UNIQUE INDEX</span> one_active_booking_per_seat
+  <span class="k">ON</span> booking_seats (schedule_id, journey_date, seat_number)
+  <span class="k">WHERE</span> is_active = 1;</pre>
+              <p class="code-note">The seat check and the insert run inside one transaction, and this partial unique index sits underneath as a safety net. If two users hit “Book” on the same seat at the same moment, one booking goes through and the other gets a 409 telling them the seat was just taken.</p>
+            </div>
+          </div>
+          <div class="p-foot">
+            <div class="chips"><span class="chip">Node.js</span><span class="chip">Express 5</span><span class="chip">node:sqlite</span><span class="chip">ES modules</span><span class="chip">HTML/CSS/JS</span></div>
+            <a class="link" href="https://github.com/phanikumar1619/bus-ticket-booking">View on GitHub</a>
+          </div>
+        </article>
+
+        <div class="divider"></div>
+
+        <!-- BlogSpace -->
+        <article class="p" id="blogspace">
+          <div class="p-head"><h3>BlogSpace</h3><span class="kind">Full-stack · REST</span></div>
+          <p class="pitch">A lighter take on blogging, built to practise what the browser and Express can do without a framework.</p>
+          <div class="p-shot"><img src="img/blog-home.jpg" alt="BlogSpace home page with a grid of post cards and a search box" ></div>
+          <div class="p-body">
+            <div>
+              <h4>What it does</h4>
+              <ul>
+                <li>Full CRUD on posts with optional cover images</li>
+                <li>Instant search by title or content</li>
+                <li>Create and edit in an accessible dialog</li>
+              </ul>
+            </div>
+            <div>
+              <h4>API</h4>
+              <div class="routes" aria-label="API routes"><span class="m">GET</span>/api/posts
+<span class="m">GET</span>/api/posts/:id
+<span class="m">POST</span>/api/posts
+<span class="m">PUT</span>/api/posts/:id
+<span class="m">DELETE</span>/api/posts/:id</div>
+            </div>
+            <div>
+              <h4>Details that matter</h4>
+              <ul>
+                <li>Multer uploads checked by their real file bytes, not just the extension</li>
+                <li>Validation on client and server</li>
+                <li>Loading, empty, error and offline states all handled</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-foot">
+            <div class="chips"><span class="chip">Node.js</span><span class="chip">Express 5</span><span class="chip">better-sqlite3</span><span class="chip">Multer</span><span class="chip">Vanilla JS</span></div>
+            <a class="link" href="https://github.com/phanikumar1619/blogspace-application-blogging-app-">View on GitHub</a>
+          </div>
+        </article>
+
+        <div class="divider"></div>
+
+        <div>
+          <h4 style="margin-bottom:6px">Where it started</h4>
+          <p style="color:var(--muted);margin-bottom:16px;max-width:70ch">Before building BusGo and BlogSpace, I spent time learning Node.js properly. These two repos are that groundwork.</p>
+          <div class="small-projects">
+            <div class="sp">
+              <h3>People CRUD API</h3>
+              <p class="kind" style="font-size:var(--t-xs);color:var(--muted)">Node.js · Express 5 · Vanilla JS</p>
+              <p>A REST API for a people list, with a small browser dashboard to try every endpoint.</p>
+              <div class="routes" aria-label="API routes"><span class="m">GET</span>/api/people
+<span class="m">GET</span>/api/people/:id
+<span class="m">POST</span>/api/people
+<span class="m">PUT</span>/api/people/:id
+<span class="m">DELETE</span>/api/people/:id</div>
+              <ul>
+                <li>express.json() and urlencoded middleware for request bodies</li>
+                <li>Correct status codes: 200, 201, 400 and 404</li>
+                <li>One JSON shape for every reply: <code>{ success, data }</code></li>
+                <li>Dashboard shows the live status code, response body and request count</li>
+              </ul>
+              <a class="link" href="https://github.com/phanikumar1619/CURD-operations">View on GitHub</a>
+            </div>
+            <div class="sp">
+              <h3>Node.js Fundamentals</h3>
+              <p class="kind" style="font-size:var(--t-xs);color:var(--muted)">Node.js core · Express · npm</p>
+              <p>My learning log in code: 30+ small scripts, each one testing a single idea.</p>
+              <ul>
+                <li>CommonJS modules, globals, <code>process.argv</code> and timers</li>
+                <li>File I/O three ways: sync, callbacks and <code>fs/promises</code> with async/await</li>
+                <li>Core modules: <code>fs</code>, <code>path</code>, <code>os</code>, <code>http</code></li>
+                <li>A raw HTTP server with manual routing, then the same app rebuilt in Express</li>
+                <li>Static files, JSON APIs, route params and query filters (search, price, category, limit)</li>
+                <li>npm basics: local vs global packages, nodemon, lodash</li>
+              </ul>
+              <a class="link" href="https://github.com/phanikumar1619/nodejs-practice-basics">View on GitHub</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="card" id="skills">
+      <div class="head"><p class="label">Skills</p><h2>My toolkit</h2><p>Only what I’ve actually used in my public repos.</p></div>
+      <div class="skills">
+        <div><h4>Languages</h4><div class="chips"><span class="chip">JavaScript (ES6+)</span><span class="chip">SQL</span><span class="chip">HTML5</span><span class="chip">CSS3</span></div></div>
+        <div><h4>Backend</h4><div class="chips"><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">REST API design</span><span class="chip">Middleware</span><span class="chip">Layered architecture</span><span class="chip">async/await</span></div></div>
+        <div><h4>Node.js core</h4><div class="chips"><span class="chip">fs &amp; fs/promises</span><span class="chip">path</span><span class="chip">os</span><span class="chip">http</span><span class="chip">CommonJS &amp; ES modules</span></div></div>
+        <div><h4>Databases</h4><div class="chips"><span class="chip">SQLite</span><span class="chip">node:sqlite</span><span class="chip">better-sqlite3</span><span class="chip">Schema design</span><span class="chip">Transactions</span><span class="chip">Indexes &amp; constraints</span></div></div>
+        <div><h4>Security</h4><div class="chips"><span class="chip">scrypt hashing</span><span class="chip">Session auth</span><span class="chip">Role-based access</span><span class="chip">Input validation</span><span class="chip">Upload checks</span></div></div>
+        <div><h4>Frontend &amp; tools</h4><div class="chips"><span class="chip">DOM</span><span class="chip">Fetch API</span><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">npm</span><span class="chip">nodemon</span><span class="chip">Multer</span><span class="chip">REST Client</span></div></div>
+      </div>
+
+    </section>
+
+    <!-- CREDENTIALS -->
+    <section class="card" id="credentials">
+      <div class="creds">
+        <div>
+          <div class="head" style="margin-bottom:18px"><p class="label">Certifications</p></div>
+          <ul class="list">
+            <li><div><b>Aviatrix Certified Engineer – Multicloud Network Associate</b><span>Aviatrix</span></div><time datetime="2025">2025</time></li>
+            <li><div><b>Salesforce Certified AI Associate</b><span>Salesforce · ID 5088732</span></div><time datetime="2024-10">Oct 2024</time></li>
+            <li><div><b>Cloud Foundations Associate</b><span>Oracle</span></div></li>
+            <li><div><b>RPA Essentials</b><span>Automation Anywhere</span></div></li>
+            <li><div><b>Programming in Java</b><span>NPTEL · IIT Kharagpur</span></div><time datetime="2023">2023</time></li>
+          </ul>
+        </div>
+        <div>
+          <div class="head" style="margin-bottom:18px"><p class="label">Education</p></div>
+          <ul class="list">
+            <li><div><b>B.Tech, Computer Science &amp; Engineering</b><span>KL University (KLEF), Vijayawada · <span class="gpa">CGPA 9.06</span></span></div><time>2022 – 2026</time></li>
+            <li><div><b>Intermediate (MPC)</b><span>Narayana Junior College · 74.4%</span></div><time>2022</time></li>
+            <li><div><b>SSC</b><span>Vijayam Techno School · 99%</span></div><time>2020</time></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="card contact" id="contact">
+      <div>
+        <p class="label" style="color:var(--gold)">Contact</p>
+        <h2 style="margin-top:8px">Hiring freshers? Let’s talk.</h2>
+        <p>I usually reply within a day. Email works best.</p>
+      </div>
+      <div class="mail">
+        <code id="email">k.phani1619@gmail.com</code>
+        <button class="btn solid" id="copyBtn" type="button">Copy email</button>
+        <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+<footer>© 2026 Karubhuktha Phani Kumar · Built with HTML, CSS and a little JavaScript</footer>
+
+<script>
+document.getElementById('copyBtn').addEventListener('click', function(){
+  var btn=this, el=document.getElementById('email');
+  function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy email'},1600)}
+  function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Press Ctrl+C'}
+  try{navigator.clipboard.writeText(el.textContent).then(done,fallback)}catch(e){fallback()}
+});
+</script>
+</body>
+</html>
